@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import { v4 as uuid } from "uuid";
 import ContactUs from "./pages/ContactUs";
+import Booking from "./pages/Booking";
 
 export const routes = [
   {
@@ -20,7 +21,7 @@ export const routes = [
         id: uuid(),
         path: "booking",
         text: "Book a visit",
-        // element: <Contact />,
+        element: <Booking />,
       },
       {
         id: uuid(),

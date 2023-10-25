@@ -14,7 +14,7 @@ const SideBar = ({ menuItems }: SideBarProps) => {
         {menuItems?.map((item) => (
           <SideBarListItem
             key={item?.id}
-            isActive={`/${item.path}` === location.pathname}
+            $isActive={`/${item.path}` === location.pathname}
           >
             <SideBarLink to={item.path}>{item.text}</SideBarLink>
           </SideBarListItem>
@@ -32,11 +32,11 @@ const SideBarList = styled.ul`
 `;
 
 const SideBarListItem = styled.li<{
-  isActive?: boolean | undefined;
+  $isActive?: boolean | undefined;
 }>`
   list-style: none;
   padding: 10px;
-  ${({ isActive }) => isActive && `background-color: grey;`}
+  ${({ $isActive }) => $isActive && `background-color: grey;`}
 `;
 
 const SideBarLink = styled(NavLink)`
