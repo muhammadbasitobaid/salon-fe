@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface ButtonProps {
   type?: "button" | "submit" | "reset" | undefined;
-  onClick?: () => void;
+  onClick?: (e: Event) => void;
   name: string;
 }
 
