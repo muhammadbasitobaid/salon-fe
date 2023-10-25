@@ -3,7 +3,8 @@ import styled from "styled-components/macro";
 // import { decrement, increment } from "./features/counter/counterSlice";
 import { Outlet } from "react-router-dom";
 import SideBar from "./components/SideBar";
-import { routes } from "./routes";
+import { routes } from "./routes/routes";
+import RouteGuard from "./routes/RouteGuard";
 
 function App() {
   // const counterState = useSelector((state: any) => state.counter);
@@ -19,8 +20,10 @@ function App() {
 
   return (
     <Container className="App">
-      <SideBar menuItems={menuItems} />
-      <Outlet />
+      <RouteGuard>
+        <SideBar menuItems={menuItems} />
+        <Outlet />
+      </RouteGuard>
     </Container>
   );
 }

@@ -1,9 +1,9 @@
-import App from "./App";
-import Login from "./pages/Login";
-import SignUp from "./pages/SignUp";
+import App from "../App";
+import Login from "../pages/Login";
+import SignUp from "../pages/SignUp";
 import { v4 as uuid } from "uuid";
-import ContactUs from "./pages/ContactUs";
-import Booking from "./pages/Booking";
+import ContactUs from "../pages/ContactUs";
+import Booking from "../pages/Booking";
 
 export const routes = [
   {

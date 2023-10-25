@@ -1,8 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import FormComp from "../../components/FormComp";
 import Input from "../../components/Input";
+import useAuthRedirect from "../../hooks/useAuthRedirect";
 import AuthLayout from "../../layouts/AuthLayout";
 import * as Yup from "yup";
+import { StyledLink } from "../../common";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -19,6 +22,9 @@ const Login = () => {
     email: "",
     password: "",
   };
+  const navigate = useNavigate();
+
+  useAuthRedirect();
   return (
     <AuthLayout>
       <FormComp
@@ -26,6 +32,8 @@ const Login = () => {
         initialValues={initialValues}
         onSubmit={() => {
           console.log("submitted");
+          localStorage.setItem("logged_user", "true");
+          navigate("/");
         }}
         validationSchema={loginSchema}
       >
@@ -50,6 +58,8 @@ const Login = () => {
                 e.preventDefault();
               }}
             />
+
+            <StyledLink to={"/signup"}>Sign Up</StyledLink>
           </>
         )}
       </FormComp>
